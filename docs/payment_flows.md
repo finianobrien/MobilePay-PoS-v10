@@ -104,7 +104,7 @@ the ``paymentId`` by the ``orderId`` and cancel afterwards.
 
 ### Cancelling Refunds
 
-A client can end up in situations, where the status of a refund is not known e.g. in cases, where parts of the solution is down, or there are network issues. In these cases, it is important, that the client retains information about refunds, that have been requested. It is then possible for the client to follow up on whether the refund should be cancelled or captured. Examples for either cancel or capture could be: In the case of cancel - the customer has received refund in cash instead. In the case of capture - the customer has left the store with information that the payment will be refunded.
+A client can end up in situations where the status of a refund is not known e.g. in cases where parts of the solution is down or there are network issues. In these cases it is important that the client retains information about refunds that have been requested. It is then possible for the client to follow up on whether the refund should be cancelled or captured. Examples for either cancel or capture could be the following: In the case of cancel - the customer has received refund in cash instead. In the case of capture - the customer has left the store with information that the payment will be refunded.
 
 A refund is cancellable until it reaches one of the states *CancelledByMobilePay*, *Captured* or *ExpiredAndCapturred*. Refunds can only be cancelled by the client since there is no customer involved in the process. A refund can be cancelled by calling the endpoint ``POST /v10/refunds/{refundId}/cancel``. It requires the id of the refund that was returned when the refund was initiated.
 When the refund has been cancelled the state transitions to *CancelledByClient*. 
